@@ -12,7 +12,7 @@ CLASSPATH=${CLASSPATH:-/usr/local/tomcat/webapps/geoserver/WEB-INF/lib/}
 
 make_hash(){
     NEW_PASSWORD=$1
-    (echo "digest1:" && java -classpath ${CLASSPATH}jasypt-1.8.jar org.jasypt.intf.cli.JasyptStringDigestCLI digest.sh algorithm=SHA-256 saltSizeBytes=16 iterations=100000 input="$NEW_PASSWORD" verbose=0) | tr -d '\n'
+    (echo "digest1:" && java -classpath ${CLASSPATH}jasypt-1.9.2.jar org.jasypt.intf.cli.JasyptStringDigestCLI digest.sh algorithm=SHA-256 saltSizeBytes=16 iterations=100000 input="$NEW_PASSWORD" verbose=0) | tr -d '\n'
 }
 
 PWD_HASH=$(make_hash $GEOSERVER_ADMIN_PASSWORD)
