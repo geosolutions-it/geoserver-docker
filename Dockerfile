@@ -82,7 +82,7 @@ RUN apt-get -y update \
     && pip install --upgrade pip && hash -r \
     && pip install -r requirements.txt --upgrade \
     && chmod +x /usr/local/tomcat/tmp/get_dockerhost_ip.py \
-    && chmod +x /usr/local/tomcat/tmp/get_nginxhost_ip.py
+    && chmod +x /usr/local/tomcat/tmp/get_nginxhost_ip.py \
     && chmod +x /usr/local/tomcat/tmp/update_passwords.sh
 
 CMD ["/usr/local/tomcat/tmp/entrypoint.sh"]
