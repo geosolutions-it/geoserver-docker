@@ -69,6 +69,8 @@ WORKDIR /usr/local/tomcat/tmp
 COPY set_geoserver_auth.sh /usr/local/tomcat/tmp
 COPY requirements.txt /usr/local/tomcat/tmp
 COPY entrypoint.sh /usr/local/tomcat/tmp
+COPY get_dockerhost_ip.py /usr/local/tomcat/tmp
+COPY get_nginxhost_ip.py /usr/local/tomcat/tmp
 COPY update_passwords.sh /usr/local/tomcat/tmp
 RUN chmod 755 *.sh
 
@@ -81,5 +83,6 @@ RUN apt-get -y update \
     && pip install -r requirements.txt --upgrade \
     && chmod +x /usr/local/tomcat/tmp/get_dockerhost_ip.py \
     && chmod +x /usr/local/tomcat/tmp/get_nginxhost_ip.py
+    && chmod +x /usr/local/tomcat/tmp/update_passwords.sh
 
 CMD ["/usr/local/tomcat/tmp/entrypoint.sh"]
